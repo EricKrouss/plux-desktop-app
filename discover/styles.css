@@ -5,7 +5,8 @@
     margin: 5px;
     display: flex;
 }
-#nav img{
+
+#nav img {
     width: 40px;
     height: auto;
     align-items: center;
@@ -13,7 +14,7 @@
     justify-self: center;
 }
 
-#profile img{
+#profile img {
     border-radius: 50%;
     border-style: solid;
     border-color: white;
@@ -21,7 +22,6 @@
     height: 40px;
     width: auto;
 }
-
 
 header {
     display: flex;
@@ -56,20 +56,19 @@ html, body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-  }
-
+}
 
 @media (max-width: 768px) {
     #logo img {
-        width: 30px;
+        width: 60px;
         height: auto;
-        padding-left: 3px;
-        margin: 3px;
+        padding-left: 6px;
+        margin: 6px;
         display: flex;
     }
     
     #nav img {
-        width: 30px;
+        width: 60px;
         height: auto;
         align-items: center;
         justify-content: center;
@@ -81,20 +80,20 @@ html, body {
         border-style: solid;
         border-color: white;
         border-width: 2px;
-        height: 30px;
+        height: 60px;
         width: auto;
     }
     
     header {
-        font-size: large;
+        font-size: x-large;
     }
     
     #map {
-        height: 50vh;
+        height: 100vh;
     }
     
     .marker {
-        width: 30px;
-        height: 30px;
+        width: 60px;
+        height: 60px;
     }
 }
