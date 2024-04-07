@@ -57,3 +57,44 @@ html, body {
     height: 40px;
     border-radius: 50%;
   }
+
+
+@media (max-width: 768px) {
+    #logo img {
+        width: 30px;
+        height: auto;
+        padding-left: 3px;
+        margin: 3px;
+        display: flex;
+    }
+    
+    #nav img {
+        width: 30px;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+    }
+    
+    #profile img {
+        border-radius: 50%;
+        border-style: solid;
+        border-color: white;
+        border-width: 2px;
+        height: 30px;
+        width: auto;
+    }
+    
+    header {
+        font-size: large;
+    }
+    
+    #map {
+        height: 50vh;
+    }
+    
+    .marker {
+        width: 30px;
+        height: 30px;
+    }
+}
