@@ -108,17 +108,19 @@ export var data = [
 // Continuation or part of data.js
 // In data.js or a separate categories.js module
 export const categoryIcons = {
-    drink: '🍻', // Emoji or URL to an image
-    bar: '🍸', // Emoji or URL to an image
-    brewery: '🍺', // Emoji or URL to an image
-    food: '🍔', // Emoji or URL to an image
-    seafood: '🐟', // Emoji or URL to an image
-    arcade: '🕹️', // Emoji or URL to an image
-    icecream: '🍨',
-    cookies: '🍪',
-    pizza: '🍕',
-    noodles: '🍜',
-    default: '📍',
+    'drink': '🍻', // Emoji or URL to an image
+    'bar': '🍸', // Emoji or URL to an image
+    'brewery': '🍺', // Emoji or URL to an image
+    'food': '🍔', // Emoji or URL to an image
+    'seafood': '🐟', // Emoji or URL to an image
+    'arcade': '🕹️', // Emoji or URL to an image
+    'icecream': '🍨',
+    'cookies': '🍪',
+    'pizza': '🍕',
+    'noodles': '🍜',
+    'default': '📍', // Default pin
+    'coffee': '☕', // Coffee emoji for cafes
+    'bookstore': '📚', // Book emoji for bookstores
     // Add more categories and icons as needed
 };
 

@@ -53,10 +53,14 @@ html, body {
 }
 
 .marker {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    font-size: 24px; /* Adjust size as needed */
+    display: inline-block; /* Ensure markers are displayed */
+    text-align: center;
+    width: 30px; /* Provide enough space for the emoji */
+    height: 30px;
 }
+
+
 
 @media (max-width: 768px) {
     #logo img {
