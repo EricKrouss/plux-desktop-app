@@ -13,14 +13,6 @@
     justify-self: center;
 }
 
-#profilepic img{
-    border-radius: 50%;
-    border-style: solid;
-    border-color: white;
-    border-width: 2px;
-    height: 40px;
-}
-
 #profile img{
     border-radius: 50%;
     border-style: solid;
@@ -49,44 +41,19 @@ body {
     background-color: #393939;
 }
 
-.postContainer, .profilepic {
-display: flex;
-background-color: #2e2e2e;
-max-width: 500px;
-}
-
-.postContainer{
-    padding: 15px
-}
-
-.username{
-    height: 50px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    color: white;
-    display: flex;
-    position: relative;
-    padding: 15px
-}
-
-.post {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    font-size: 1.5em,
-}
-
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%; /* Add this */
 }
 
-#map{
+#map {
     width: 100%;
-    height: 100%;
-    border-color: aqua;
-    border-width: 10px;
-    border-style: solid;
+    height: 100vh;
 }
+
+.marker {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
