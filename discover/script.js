@@ -4,7 +4,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicGx1eHNvY2lhbCIsImEiOiJjbHRubXhiYWQwNjljMmpwZ
 
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/pluxsocial/cluqbduh7002z01qn5ccoblnv',
+    style: 'mapbox://styles/pluxsocial/cluqbo9v8002s01ql1is253ih',
     center: [-70.8962810821839, 42.52135233325506],
     zoom: 16,
 });
