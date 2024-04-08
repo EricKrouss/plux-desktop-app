@@ -82,7 +82,7 @@ function createMarker(location) {
 
 function categorizeLocation(feature) {
     let category = feature.properties?.category || feature.text;
-    return category.toLowerCase();
+    return category.toLowerCase(); 
 }
 
 function matchCategoryToEmoji(category) {
