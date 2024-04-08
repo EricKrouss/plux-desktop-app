@@ -9,9 +9,19 @@ const map = new mapboxgl.Map({
     zoom: 16,
 });
 
+// Throttle setup to limit the frequency of location updates
+let isThrottled = false;
+const throttleDuration = 3000; // milliseconds
+
 map.on('load', () => {
     updateLocationsBasedOnMapCenter();
-    map.on('moveend', updateLocationsBasedOnMapCenter);
+    map.on('idle', () => {
+        if (!isThrottled) {
+            updateLocationsBasedOnMapCenter();
+            isThrottled = true;
+            setTimeout(() => { isThrottled = false; }, throttleDuration);
+        }
+    });
 });
 
 async function fetchDynamicLocations(searchTerm, lng, lat) {
