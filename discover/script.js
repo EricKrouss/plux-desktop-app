@@ -1,4 +1,4 @@
-import { categoryIcons } from './data.js';
+import { categoryMappings } from './CategoryMappings.js';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicGx1eHNvY2lhbCIsImEiOiJjbHRubXhiYWQwNjljMmpwZnByYWVhYjFoIn0.rQTutbi8HkK1un7bJYzVNw';
 
@@ -10,8 +10,8 @@ const map = new mapboxgl.Map({
 });
 
 map.on('load', () => {
-    updateLocationsBasedOnMapCenter(); // Fetch and display locations based on the initial map center
-    map.on('moveend', updateLocationsBasedOnMapCenter); // Update locations when the map is moved
+    updateLocationsBasedOnMapCenter();
+    map.on('moveend', updateLocationsBasedOnMapCenter);
 });
 
 async function fetchDynamicLocations(searchTerm, lng, lat) {
@@ -23,7 +23,7 @@ async function fetchDynamicLocations(searchTerm, lng, lat) {
         const data = await response.json();
         return data.features.map(feature => ({
             name: feature.text,
-            type: categorizeLocation(feature), // Utilize categorizeLocation function here
+            type: categorizeLocation(feature),
             coordinates: feature.geometry.coordinates
         }));
     } catch (error) {
@@ -44,7 +44,7 @@ function updateLocationsBasedOnMapCenter() {
 function createMarker(location) {
     const el = document.createElement('div');
     el.className = 'marker';
-    const icon = categoryIcons[location.type] || categoryIcons.default;
+    const icon = matchCategoryToEmoji(location.type) || '❓'; // Using a question mark as a fallback
     el.innerHTML = icon;
     el.style.fontSize = '24px';
 
@@ -55,22 +55,20 @@ function createMarker(location) {
 }
 
 function categorizeLocation(feature) {
-    // Implement categorization logic based on feature's properties or name
-    // This example uses simple includes checks; extend or adjust as needed
-    const nameLower = feature.text.toLowerCase();
-    if (nameLower.includes('cafe') || nameLower.includes('coffee')) {
-        return 'coffee';
-    } else if (nameLower.includes('book')) {
-        return 'bookstore';
-    } else if (nameLower.includes('brewery')) {
-        return 'brewery';
-    } else if (nameLower.includes('restaurant') || nameLower.includes('diner')) {
-        return 'food';
-    }
-    return 'default'; // Default category for unmatched types
+    let category = feature.properties?.category || feature.text;
+    return category.toLowerCase();
 }
 
-// Add geolocate control to the map for user's location
+function matchCategoryToEmoji(category) {
+    for (const [key, emoji] of Object.entries(categoryMappings)) {
+        if (category.includes(key.toLowerCase())) {
+            return emoji;
+        }
+    }
+    console.log("Unmatched category:", category);
+    return '❓';
+}
+
 map.addControl(
     new mapboxgl.GeolocateControl({
         positionOptions: {
