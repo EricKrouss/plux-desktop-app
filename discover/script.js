@@ -5,24 +5,40 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicGx1eHNvY2lhbCIsImEiOiJjbHRubXhiYWQwNjljMmpwZ
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/pluxsocial/cluqbo9v8002s01ql1is253ih',
-    center: [-70.8962810821839, 42.52135233325506],
     zoom: 16,
 });
 
-// Throttle setup to limit the frequency of location updates
-let isThrottled = false;
-const throttleDuration = 3000; // milliseconds
+const geolocate = new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    trackUserLocation: true,
+    showUserHeading: true
+});
 
+map.addControl(geolocate);
+
+// Wait until the map loads to trigger the user location
 map.on('load', () => {
+    geolocate.trigger();
     updateLocationsBasedOnMapCenter();
-    map.on('idle', () => {
-        if (!isThrottled) {
-            updateLocationsBasedOnMapCenter();
-            isThrottled = true;
-            setTimeout(() => { isThrottled = false; }, throttleDuration);
-        }
+    
+    map.on('idle', throttleUpdateLocations);
+    geolocate.on('geolocate', (e) => {
+        updateLocationsBasedOnMapCenter(e.coords.longitude, e.coords.latitude);
     });
 });
+
+function throttleUpdateLocations() {
+    if (!isThrottled) {
+        updateLocationsBasedOnMapCenter();
+        isThrottled = true;
+        setTimeout(() => { isThrottled = false; }, throttleDuration);
+    }
+}
+
+let isThrottled = false;
+const throttleDuration = 3000; // milliseconds
 
 async function fetchDynamicLocations(searchTerm, lng, lat) {
     const proximity = `${lng},${lat}`;
