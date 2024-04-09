@@ -47,17 +47,81 @@ html, body {
     height: 100%; /* Add this */
 }
 
+.search-container {
+    position: absolute;
+    width: 500px;
+    top: 80px;
+    max-width: 70%; /* Adjust the max-width as per your layout */
+    margin: 0 auto; /* Center the search container */
+    z-index: 99; /* Ensure the search is above other content */
+    left: 50%;
+    transform: translateX(-50%);
+}
+  
+  #searchInput {
+    width: 100%;
+    padding: 12px 24px; /* Adequate padding for input field */
+    font-size: 16px; /* Readable font size */
+    border: 2px solid #ddd; /* Light border */
+    border-radius: 50px; /* Fully rounded edges */
+    outline: none; /* Remove the outline to use only the border styling */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+  
+  #searchInput:focus {
+    border-color: #0056b3; /* Highlight color when focused */
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.2); /* Soft glow effect */
+  }
+  
+  .search-results {
+    position: absolute;
+    top: 100%; /* Position right below the search input */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-radius: 0 0 8px 8px; /* Rounded corners on the bottom */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Consistent with the input field */
+    z-index: 1000; /* Ensure the results are above other content */
+    overflow: hidden; /* Hide the overflow */
+  }
+  
+  .search-result-item {
+    padding: 8px 24px; /* Consistent padding */
+    cursor: pointer; /* Indicate an actionable item */
+    border-bottom: 1px solid #eee; /* Light separator */
+  }
+  
+  .search-result-item:last-child {
+    border-bottom: none; /* Remove border for the last item */
+  }
+  
+  .search-result-item:hover {
+    background-color: #f5f5f5; /* Hover state */
+  }
+  
+
 #map {
     width: 100%;
     height: 100vh;
 }
 
 .marker {
-    font-size: 24px; /* Adjust size as needed */
-    display: inline-block; /* Ensure markers are displayed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    width: 30px; /* Provide enough space for the emoji */
-    height: 30px;
+    cursor: pointer;
+}
+
+.marker .emoji {
+    font-size: 20px; /* Adjust the size of the emoji here */
+    line-height: 1;
+}
+
+.marker .name {
+    display: none; /* Hide the name by default */
+    font-size: 14px; /* Adjust the size of the text here */
+    margin-top: 4px; /* Spacing between the emoji and the text */
 }
 
 
@@ -100,4 +164,21 @@ html, body {
         width: 60px;
         height: 60px;
     }
+    #searchInput {
+        width: 100%;
+        padding: 12px 24px; /* Adequate padding for input field */
+        font-size: 12px; /* Readable font size */
+        border: 2px solid #ddd; /* Light border */
+        border-radius: 50px; /* Fully rounded edges */
+        outline: none; /* Remove the outline to use only the border styling */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+      }
+      
+.search-container {
+    position: absolute;
+    width: 500px;
+    top: 80px;
+    z-index: 99; /* Ensure the search is above other content */
+    left: 50%;
+}
 }
