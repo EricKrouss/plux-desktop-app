@@ -26,12 +26,19 @@
             </a>
         </div>
     </header>
+    <div class="filter-container">
+        <button id="filterToggle">Filter</button>
+        <div id="filterOptions" class="filter-options">
+          <!-- Dynamically generated filter options will go here -->
+        </div>
+      </div>
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search by name or category...">
         <div id="searchResults" class="search-results"></div>
     </div>
     <div id="map"></div>
     <script src="./discover/script.js" type="module"></script>
+    <script src="./discover/filters.js" type="module"></script>
     <script src="./discover/searchbar.js" type="module"></script>
 </body>
 </html>

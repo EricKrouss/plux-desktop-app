@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
     searchInput.addEventListener('input', function() {
         const searchValue = searchInput.value.toLowerCase().trim();
 
+        // If the search input is empty, clear the search results and return early
+        if (!searchValue) {
+            searchResultsContainer.innerHTML = '';
+            return;
+        }
+
         // Filter businesses based on the search value
         const filteredBusinesses = data.filter(business =>
             business.name.toLowerCase().includes(searchValue) || business.category.toLowerCase().includes(searchValue)
@@ -23,8 +29,12 @@ document.addEventListener('DOMContentLoaded', function() {
             resultItem.classList.add('search-result-item');
             resultItem.textContent = business.name;
 
-            // Clicking on a result re-centers the map on the business's coordinates
-            resultItem.addEventListener('click', () => recenterMapOnBusiness(business.coordinates));
+            // Clicking on a result re-centers the map on the business's coordinates and clears the results
+            resultItem.addEventListener('click', () => {
+                recenterMapOnBusiness(business.coordinates);
+                searchResultsContainer.innerHTML = ''; // Clear the results container
+                searchInput.value = ''; // Optionally clear the search input
+            });
 
             searchResultsContainer.appendChild(resultItem);
         });

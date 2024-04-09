@@ -49,7 +49,7 @@ html, body {
 
 .search-container {
     position: absolute;
-    width: 500px;
+    width: 5006px;
     top: 80px;
     max-width: 70%; /* Adjust the max-width as per your layout */
     margin: 0 auto; /* Center the search container */
@@ -104,6 +104,24 @@ html, body {
     width: 100%;
     height: 100vh;
 }
+
+.filter-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .filter-icon {
+    width: 24px;
+    height: 24px;
+  }
 
 .marker {
     display: flex;

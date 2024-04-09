@@ -6,6 +6,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicGx1eHNvY2lhbCIsImEiOiJjbHRubXhiYWQwNjljMmpwZ
 const mapStyle = 'mapbox://styles/pluxsocial/cluqbo9v8002s01ql1is253ih';
 
 let map;
+export let markers = []; // Store all markers
+
 export function initializeMap(longitude, latitude) {
     map = new mapboxgl.Map({
         container: 'map',
@@ -35,7 +37,8 @@ function addBusinessMarkers(map) {
             }
         });
 
-        createMarker(map, business.coordinates, emoji, `${emoji} ${business.name}`);
+        const marker = createMarker(map, business.coordinates, emoji, `${emoji} ${business.name}`);
+        markers.push({ marker, category: business.category }); // Add marker and category
     });
 }
 
@@ -84,5 +87,12 @@ export function recenterMapOnBusiness(coordinates) {
     }
 }
 
+export function toggleMarkerVisibility(category, isVisible) {
+    markers.forEach(({ marker, category: markerCategory }) => {
+        if (markerCategory.includes(category)) {
+            isVisible ? marker.getElement().style.display = '' : marker.getElement().style.display = 'none';
+        }
+    });
+}
 
 initializeMap(-70.894579, 42.521524);
