@@ -5,7 +5,7 @@ frontend:
       commands:
         - '# Add specific build commands here if any'
   artifacts:
-    baseDirectory: '/'
+    baseDirectory: '/.well-known/apple-app-site-association'
     files:
       - '**/*'
       - '/.well-known/**/*'  # Ensuring everything in the .well-known directory is included
