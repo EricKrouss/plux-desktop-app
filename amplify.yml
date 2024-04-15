@@ -1,0 +1,20 @@
+version: 1
+frontend:
+  phases:
+    # No specific build commands needed for static sites
+    build:
+      commands: []
+  artifacts:
+    # Set to the directory containing your static site's files
+    baseDirectory: './'
+    files:
+      - '**/*'
+  cache:
+    paths: []
+customHeaders:
+  - pattern: '/.well-known/apple-app-site-association'
+    headers:
+      - key: 'Content-Type'
+        value: 'application/json'
+      - key: 'Cache-Control'
+        value: 'no-cache'
