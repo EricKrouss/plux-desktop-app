@@ -13,3 +13,8 @@ frontend:
   cache:
     paths: []
 customRules:
+  -"source": 
+        "source": "/.well-known/apple-app-site-association",
+        "target": "/well-known/apple-app-site-association.json",
+        "status": "200",
+        "condition": null
