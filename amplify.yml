@@ -2,12 +2,18 @@ version: 1
 frontend:
   phases:
     build:
-      commands:
-        - '# Add specific build commands here if any'
+      commands: []
   artifacts:
     baseDirectory: '/'
     files:
       - '**/*'
+      - '/.well-known/*/*'
   cache:
     paths: []
 customRules:
+  - source: '^/.well-known/apple-app-site-association$'
+    target: '/.well-known/apple-app-site-association.json'
+    status: '200' # Ensures it's treated as a rewrite
+  - source: '</^[^.]+$|\\.(?!(css|gif|ico|jpg|jpeg|js|png|txt|svg|woff|woff2|ttf|map|json|webmanifest)$)([^.]+$)/>'
+    target: '/index.html'
+    status: '200'
