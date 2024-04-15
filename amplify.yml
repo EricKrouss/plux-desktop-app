@@ -5,11 +5,9 @@ frontend:
       commands:
         - '# Add specific build commands here if any'
   artifacts:
-  baseDirectory: '/'
-  files:
-    - '**/*'
-    - '/well-known/apple-app-site-association.json'
-
+    baseDirectory: '/'
+    files:
+      - '**/*'
   cache:
     paths: []
 customRules:
