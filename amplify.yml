@@ -18,4 +18,4 @@ customRules:
     condition: null
   - source: '</^[^.]+$|\\.(?!(css|gif|ico|jpg|jpeg|js|png|txt|svg|woff|woff2|ttf|map|json|webmanifest)$)([^.]+$)/>'
     target: '/index.html'
-    status: '200' 
+    status: '200'
