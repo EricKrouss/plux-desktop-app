@@ -1,4 +1,4 @@
-version: 1
+version: 
 frontend:
   phases:
     build:
@@ -8,16 +8,12 @@ frontend:
     baseDirectory: '/'
     files:
       - '**/*'
-      - '/well-known/*'  # Ensure everything in the .well-known directory is included
+      - '/.well-known/*'  # Ensure everything in the .well-known directory is included
   cache:
     paths: []
 customRules:
-  - source: '^/well-known/apple-app-site-association.json$'
-    target: '/.well-known/apple-app-site-association'
-    status: '301'
-    condition: null
-  - source: '^/.well-known/apple-app-site-association$'
-    target: '/.well-known/apple-app-site-association'
+  - source: '/.well-known/apple-app-site-association'
+    target: '/well-known/apple-app-site-association.json'
     status: '200'
     condition: null
   - source: '</^[^.]+$|\\.(?!(css|gif|ico|jpg|jpeg|js|png|txt|svg|woff|woff2|ttf|map|json|webmanifest)$)([^.]+$)/>'
