@@ -14,6 +14,6 @@ customRules:
   - source: '^/.well-known/apple-app-site-association$'
     target: '/.well-known/apple-app-site-association.json'
     status: '200' # Ensures it's treated as a rewrite
-  - source: '</^[^.]+$|\\.(?!(css|gif|ico|jpg|jpeg|js|png|txt|svg|woff|woff2|ttf|map|json|webmanifest)$)([^.]+$)/>'
+  - source: '</^[^.]+$|\\.(?!(css|gif|ico|jpg|jpeg|js|png|txt|svg|woff|woff2|ttf|map|webmanifest)$)([^.]+$)/>'
     target: '/index.html'
     status: '200'
