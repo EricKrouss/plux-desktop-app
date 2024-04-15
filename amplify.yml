@@ -12,8 +12,8 @@ frontend:
   cache:
     paths: []
 customRules:
-  - source: '/.well-known/apple-app-site-association'
-    target: '/well-known/apple-app-site-association.json'
+  - source: '/.well-known/apple-app-site-association.json'
+    target: '/.well-known/apple-app-site-association'
     status: '200'
     condition: null
   - source: '</^[^.]+$|\\.(?!(css|gif|ico|jpg|jpeg|js|png|txt|svg|woff|woff2|ttf|map|json|webmanifest)$)([^.]+$)/>'
