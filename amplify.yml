@@ -12,7 +12,7 @@ frontend:
   cache:
     paths: []
 customHeaders:
-  - pattern: '/.well-known/apple-app-site-association'
+  - pattern: '/.well-known/*'
     headers:
       - key: 'Content-Type'
         value: 'application/json'
