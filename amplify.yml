@@ -2,13 +2,13 @@ version: 1
 frontend:
   phases:
     build:
-      commands: []
+      commands:
+        - '# Add specific build commands here if any'
   artifacts:
     baseDirectory: '/'
     files:
       - '**/*'
-      - '/.well-known/apple-app-site-association'
-
+      - '/.well-known/**/*'  # Ensuring everything in the .well-known directory is included
   cache:
     paths: []
 customRules:
