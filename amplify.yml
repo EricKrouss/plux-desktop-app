@@ -8,13 +8,12 @@ frontend:
   baseDirectory: '/'
   files:
     - '**/*'
-    - '/well-known/apple-app-site-association.json'  # Adjust the path if you change directory/file names
+    - '/well-known/apple-app-site-association.json'
 
   cache:
     paths: []
 customRules:
-  -"source": 
-        "source": "/.well-known/apple-app-site-association",
-        "target": "/well-known/apple-app-site-association.json",
-        "status": "200", 
-        "condition": null
+    - "source": "/.well-known/apple-app-site-association",
+      "target": "/well-known/apple-app-site-association.json",
+      "status": "200", 
+      "condition": null
