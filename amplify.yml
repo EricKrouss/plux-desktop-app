@@ -5,10 +5,10 @@ frontend:
       commands:
         - '# Add specific build commands here if any'
   artifacts:
-    baseDirectory: '/.well-known/apple-app-site-association'
+    baseDirectory: '/'
     files:
       - '**/*'
-      - '/.well-known/**/*'  # Ensuring everything in the .well-known directory is included
+      - '/.well-known/*/*'  # Ensuring everything in the .well-known directory is included
   cache:
     paths: []
 customRules:
